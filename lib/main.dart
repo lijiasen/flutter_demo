@@ -33,7 +33,7 @@ final routes = <String,WidgetBuilder> {
       ),
       initialRoute: '/',
       routes: routes,
-      home: MyHomePage(title: '例子'),
+      home: MyHomePage(title: '例子列表'),
     );
   }
 }

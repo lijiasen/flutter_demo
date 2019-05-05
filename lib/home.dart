@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jape_flutter/url_launcher.dart';
 import 'package:jape_flutter/login_page.dart';
 
-class Routes {
+class MyRoutes {
   String title;
   String route;
 
-  Routes({this.title, this.route});
+  MyRoutes(this.title, this.route);
 }
 
 class MyHomePage extends StatefulWidget {
@@ -38,30 +37,30 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).pushNamed(LoginPage.tag);
   }
 
-  final List<Routes> routes = new List.generate(
-      50,
-      (i) => new Routes(
-            title: 'Route $i',
-            route: 'This is a route',
-          ));
-
   @override
   Widget build(BuildContext context) {
+    List<MyRoutes> myRoutes = [
+      MyRoutes('列表', 'login-page'),
+      MyRoutes('登录', 'login-page'),
+      MyRoutes('布局1', 'login-page'),
+      MyRoutes('FaceID', 'login-page'),
+      MyRoutes('测试1', 'login-page'),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView.builder(
-       itemCount : routes.length,
-       itemBuilder : (context, index) {
-         return ListTile(
-           title: Text('${routes[index].title}'),
-           onTap: () {
-             Navigator.of(context).pushNamed(LoginPage.tag);
-           }
-         );
-       }
-      ),
+      body: ListView.separated(
+          separatorBuilder: (context, index) => Divider(),
+          itemCount: myRoutes.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+                title: Text('${myRoutes[index].title}'),
+                trailing: new Icon(Icons.arrow_right,color: Colors.black38,),
+                onTap: () {
+                  Navigator.of(context).pushNamed('${myRoutes[index].route}');
+                });
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: _login,
         tooltip: 'Login',
