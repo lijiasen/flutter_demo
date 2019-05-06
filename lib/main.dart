@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jape_flutter/grid_page.dart';
 import 'package:jape_flutter/home.dart';
 import 'package:jape_flutter/login_page.dart';
 import 'package:jape_flutter/url_launcher.dart';
@@ -7,11 +8,11 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
 
-
 final routes = <String,WidgetBuilder> {
   LoginPage.tag : (context) => LoginPage(title: '足彩'),
   MyHomePage.tag : (context) => MyHomePage(title: '足彩'),
-  UrlLaunch.tag : (context) => UrlLaunch(title: '主页')
+  UrlLaunch.tag : (context) => UrlLaunch(title: '主页'),
+  GridPage.tag : (context) => GridPage(title: 'Grid')
 };
 
   // This widget is the root of your application.

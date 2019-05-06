@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jape_flutter/grid_page.dart';
 import 'package:jape_flutter/login_page.dart';
+import 'package:jape_flutter/url_launcher.dart';
 
 class MyRoutes {
   String title;
@@ -40,11 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     List<MyRoutes> myRoutes = [
-      MyRoutes('列表', 'login-page'),
-      MyRoutes('登录', 'login-page'),
-      MyRoutes('布局1', 'login-page'),
-      MyRoutes('FaceID', 'login-page'),
-      MyRoutes('测试1', 'login-page'),
+      MyRoutes('列表',LoginPage.tag ),
+      MyRoutes('登录', LoginPage.tag),
+      MyRoutes('布局1', UrlLaunch.tag),
+      MyRoutes('FaceID',  UrlLaunch.tag),
+      MyRoutes('Grid',  GridPage.tag),
     ];
     return Scaffold(
       appBar: AppBar(
